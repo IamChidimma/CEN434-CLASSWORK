@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+<script>
+    function factorial(n){
+            if (n < 0) {
+        return "Factorial is not defined for negative numbers.";
+        } 
+        else if (n === 0 || n === 1) {
+        return 1; // Factorial of 0 and 1 is 1
+        } 
+        else {
+        let result = 1; // Initialize result to 1
+
+        // Loop from 2 to n to calculate the factorial
+        for (let i = 2; i <= n; i++) {
+            result *= i; // Multiply current result by i
+        }
+        return result; // Return the factorial result
+        }
+    }
+
+    function combination(x, y){
+        if (x > y){
+            let xFactorial = factorial(x);
+            let yFactorial = factorial(y);
+            let diffFactorial = factorial(x-y);
+        
+            let result = xFactorial/(yFactorial* diffFactorial);
+            return result;
+        }
+
+        if (y > x) {
+            let xFactorial = factorial(x);
+            let yFactorial = factorial(y);
+            let diffFactorial = factorial(y-x);
+
+            let result = yFactorial/(xFactorial* diffFactorial);
+            return result;
+        }
+
+        if (x === y){
+            let xFactorial = factorial(x+1);
+            let yFactorial = factorial(y);
+            let diffFactorial = factorial(x+1-y);
+        
+            let result = xFactorial/(yFactorial* diffFactorial);
+            return result;
+        }
+
+    }
+
+    let m = 3;
+    let n = 3;
+    let answer = combination(m, n);
+    console.log(`The combination of ${m} and ${n} is:`, answer);
+
+</script>    
+
+</body>
+</html>
